@@ -42,6 +42,7 @@ const Wrap = styled.div`
 `;
 
 const ItemText = styled.div`
+  z-index: 10;
   padding-top: 15vh;
   text-align: center;
 `;
