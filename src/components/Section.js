@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const Section = (props) => {
   return (
-    <Wrap>
+    <Wrap bgImage={props.backgroundImg}>
       <ItemText>
         <h1>{props.title}</h1>
         <p>{props.description}</p>
@@ -11,9 +11,11 @@ const Section = (props) => {
       <Buttons>
         <ButtonGroup>
           <LeftButton>{props.leftBtnText}</LeftButton>
-          <RightButton>{props.rightBtnText}</RightButton>
+          {props.rightBtnText && (
+            <RightButton>{props.rightBtnText}</RightButton>
+          )}
         </ButtonGroup>
-        <DownArrow src='/images/down-arrow.svg'/>
+        <DownArrow src='/images/down-arrow.svg' />
       </Buttons>
     </Wrap>
   );
@@ -27,11 +29,11 @@ const Wrap = styled.div`
   background-size: cover;
   background-position: center;
   backgroun-repeat: no-repeat;
-  background-image: url('/images/model-s.jpg');
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  background-image: ${(props) => `url("/images/${props.bgImage}")`};
 `;
 
 const ItemText = styled.div`
